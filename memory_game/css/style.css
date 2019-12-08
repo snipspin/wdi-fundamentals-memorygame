@@ -1,5 +1,6 @@
 body {
 	text-align: center;
+	margin: 0;
 }
 
 a {
@@ -18,12 +19,39 @@ h1{
 	color: #0d2c40;	
 	font-weight: 400;
 	font-size: 45px;
+	margin: 0;
 }
 
 h2 {
 	color: #0d2c40;	
 	font-weight: 600;
 	font-size: 20px;
+}
+
+header {
+	background-color: #f15b31;
+	color: #ffffff;
+	padding: 30px 20px;
+}
+
+img {
+	margin: 40px 8px;
+}
+
+main{
+	width: 850px;
+	margin: 35px auto;
+}
+
+nav {
+	background-color: #00a6b3;
+	color: #ffffff;
+	padding: 20px;
+}
+
+nav a {
+	margin: 0 20px;
+	color: #ffffff;
 }
 
 ul {
