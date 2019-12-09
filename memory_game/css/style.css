@@ -8,6 +8,11 @@ a {
 	color: #f15b31;	
 	font-weight: 600;
 	font-size: 18px;
+	border-bottom: 2px solid transparent;
+}
+
+a:hover {
+	border-color: #ffffff;
 }
 
 footer {
@@ -38,6 +43,12 @@ h2 {
 	font-size: 20px;
 }
 
+footer h2 {
+	display: inline-block;
+	color: #ffffff;
+	border-bottom: 2px solid #00a6b3;
+}
+
 header {
 	background-color: #f15b31;
 	color: #ffffff;
@@ -66,10 +77,34 @@ nav a {
 
 ul {
 	list-style-type: none;
+	text-align: center;
+	padding: 0;
 }
 
 p {
 	font-family: "Droid Serif";
 	line-height: 26px;
 	font-size: 18px;
+}
+
+.copyright {
+	float: left;
+}
+
+.message {
+	float: right;
+}
+
+.name {
+	color: #f15b31;
+	font-weight: 700;
+}
+
+.clearfix:after {
+visibility: hidden;
+display: block;
+content: " ";
+clear: both;
+height: 0;
+font-size: 0;
 }
