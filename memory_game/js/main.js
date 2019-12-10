@@ -1,6 +1,23 @@
 const cards = ['queen', 'queen', 'king', 'king'];
+const cardsInPlay = [];
+let cardOne;
+let cardTwo;
 
-flipped(cards[1]);
+cardOne = cards[0];
+cardTwo = cards[2];
+cardsInPlay.push(cardOne);
+cardsInPlay.push(cardTwo);
+
+if(cardsInPlay.length === 2) {
+	
+}
+
+flipped(cardOne);
+flipped(cardsInPlay[0]);
+flipped(cardsInPlay[1]);
+flipped(cards);
+
+
 
 function flipped(card) {
 	var flippedMsg = 'User flipped ';
