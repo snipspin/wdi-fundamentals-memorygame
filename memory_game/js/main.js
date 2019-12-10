@@ -1,9 +1,6 @@
-var cardOne = 'queen'
-var cardThree = 'queen';
-var cardTwo = 'king'
-var cardFour = 'king';
+const cards = ['queen', 'queen', 'king', 'king'];
 
-flipped(cardTwo);
+flipped(cards[1]);
 
 function flipped(card) {
 	var flippedMsg = 'User flipped ';
