@@ -1,9 +1,31 @@
-const cards = ['queen', 'queen', 'king', 'king'];
+const cards = [
+	{
+		rank: "queen",
+		suit: "hearts",
+		cardImage: "images/queen-of-hearts.jpg"
+	},
+	{
+		rank: "queen",
+		suit: "diamonds",
+		cardImage: "images/queen-of-diamonds.jpg"
+	},
+	{
+		rank: "king",
+		suit: "hearts",
+		cardImage: "images/king-of-hearts.jpg"
+	},
+	{
+		rank: "king",
+		suit: "diamonds",
+		cardImage: "images/king-of-diamonds.jpg"
+	}
+];
+
 const cardsInPlay = [];
 
 function checkForMatch() {
 	if(cardsInPlay.length === 2) {
-		if(cardsInPlay[0] === cardsInPlay[1]) {
+		if(cardsInPlay[0].rank === cardsInPlay[1].rank) {
 			alert('You found a match!');
 		} 
 		else {
@@ -14,7 +36,8 @@ function checkForMatch() {
 }
 
 function flipCard(cardId) {
-	console.log(`User flipped ${cards[cardId]}`);
+	console.log(`User flipped ${cards[cardId].rank}`);
+	console.log(`Imagepath: ${cards[cardId].cardImage} suit: ${cards[cardId].suit}`);
 	cardsInPlay.push(cards[cardId]);
 	checkForMatch();
 }
