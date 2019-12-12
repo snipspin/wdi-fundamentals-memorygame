@@ -27,10 +27,13 @@ const cardsInPlay = [];
 const gameBoard = document.querySelector('#game-board');
 const gameResetButton = document.querySelector('#game-reset');
 
+let roundActive = true;
+
 let score = 0;
 
 function checkForMatch() {
-	if(cardsInPlay.length === 2) {
+	if(cardsInPlay.length === 2 && roundActive) {
+		roundActive = false;
 		if(cardsInPlay[0].rank === cardsInPlay[1].rank) {
 			alert('You found a match!');
 			score++;
@@ -40,6 +43,7 @@ function checkForMatch() {
 			score--;
 		} 
 		cardsInPlay.length=0;
+		updateScore();
 		showPlayAgainButton();
 	}
 }
@@ -58,9 +62,6 @@ function createBoard() {
 function flipCard() {
 	var cardId = this.getAttribute('data-id');
 	this.setAttribute('src', cards[cardId].cardImage);
-	console.log(`cardID: ${cardId}`);
-	console.log(`User flipped ${cards[cardId].rank}`);
-	console.log(`Imagepath: ${cards[cardId].cardImage} suit: ${cards[cardId].suit}`);
 	cardsInPlay.push(cards[cardId]);
 	checkForMatch();
 }
@@ -91,8 +92,8 @@ function shuffle(array) {
 }
 
 function startNewGame() {
+	roundActive = true;
 	gameResetButton.style.visibility = 'hidden';
-	updateScore();
 	shuffle(cards);
 	createBoard();
 }
