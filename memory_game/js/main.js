@@ -42,7 +42,6 @@ function checkForMatch() {
 			alert('Sorry, try again.');
 			score--;
 		} 
-		cardsInPlay.length=0;
 		updateScore();
 		showPlayAgainButton();
 	}
@@ -93,6 +92,7 @@ function shuffle(array) {
 
 function startNewGame() {
 	roundActive = true;
+	cardsInPlay.length=0;
 	gameResetButton.style.visibility = 'hidden';
 	shuffle(cards);
 	createBoard();
