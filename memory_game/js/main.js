@@ -25,20 +25,27 @@ const cards = [
 const cardsInPlay = [];
 
 const gameBoard = document.querySelector('#game-board');
+const gameResetButton = document.querySelector('#game-reset');
+
+let score = 0;
 
 function checkForMatch() {
 	if(cardsInPlay.length === 2) {
 		if(cardsInPlay[0].rank === cardsInPlay[1].rank) {
 			alert('You found a match!');
+			score++;
 		} 
 		else {
 			alert('Sorry, try again.');
+			score--;
 		} 
 		cardsInPlay.length=0;
+		showPlayAgainButton();
 	}
 }
 
 function createBoard() {
+	gameBoard.innerHTML = "";
 	for (var i = cards.length - 1; i >= 0; i--) {
 		var cardElement = document.createElement('img');
 		cardElement.setAttribute('src', back);
@@ -58,4 +65,42 @@ function flipCard() {
 	checkForMatch();
 }
 
+function showPlayAgainButton() {
+	gameResetButton.style.visibility = 'visible';
+}
+
+function shuffle(array) {
+	var arr =[];
+	for (var i = array.length - 1; i >= 0; i--) {
+		var random = Math.floor(Math.random()*4);
+		switch(random) {
+			case 0: arr.push(array.shift());
+			break;
+			case 1: arr.push(array.pop());
+			break;
+			case 2: arr.unshift(array.shift());
+			break;
+			case 3: arr.unshift(array.pop());
+			break;
+			default: break;
+		}
+	}
+	for (var i = arr.length - 1; i >= 0; i--) {
+		cards[i] = arr[i]
+	}
+}
+
+function startNewGame() {
+	gameResetButton.style.visibility = 'hidden';
+	updateScore();
+	shuffle(cards);
+	createBoard();
+}
+
+function updateScore() {
+	document.querySelector('#score').textContent = score;
+}
+
 createBoard();
+updateScore();
+gameResetButton.addEventListener('click', startNewGame);
